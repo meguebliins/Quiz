@@ -1,0 +1,18 @@
+<div>
+    <h2> {{currentQuestion.question}}</h2>
+    <ol>
+    @for(res of currentQuestion.responses;track res.id){
+       <li>
+        <input type="checkbox"  name=res.id 
+        [checked]="'isChecked'+res.id"
+         ngModel
+         (ngModelChange)="'isChecked'+res.id"
+         
+          (change)="onChange()" 
+         (click)="onResponse(res.id)"
+         />
+        <label> {{res.response}}</label>
+    </li>
+    }
+</ol>
+</div>
